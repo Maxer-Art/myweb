@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ELIXIR | 现代时尚品牌</title>
+    <!-- 使用现代、干净的字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (免费图标库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 18px 0;
+            transition: all 0.2s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e1e2a, #2d2f3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c2c2e;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #8b5e3c;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-icons a {
+            color: #2c2c2e;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .nav-icons a:hover {
+            color: #8b5e3c;
+        }
+
+        /* 移动端菜单 */
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #2c2c2e;
+        }
+
+        /* 按钮风格 */
+        .btn {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+        }
+
+        .btn-outline:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background-color: #3a2c24;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Hero 区 */
+        .hero {
+            padding: 80px 0 100px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8b5e3c;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* 精选系列 */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #6b6b6b;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-img {
+            background-color: #f4f4f4;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            margin-bottom: 1rem;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 0 6px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-weight: 500;
+            color: #8b5e3c;
+        }
+
+        /* 特色区域 / 品牌故事 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: #faf8f6;
+            border-radius: 2rem;
+            padding: 50px 40px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.4rem;
+            color: #8b5e3c;
+            margin-bottom: 16px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: #5a5a5a;
+        }
+
+        /* 电子邮件订阅 */
+        .newsletter {
+            background: #1e1e24;
+            color: white;
+            border-radius: 2rem;
+            padding: 60px 48px;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .newsletter p {
+            margin-bottom: 28px;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 2;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: #8b5e3c;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: #a4754e;
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #0f0f12;
+            color: #ccc;
+            padding: 60px 0 40px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: #aaa;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #d4a373;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .social-links a {
+            color: #ccc;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #d4a373;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 24px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0 60px;
+            }
+            .hero-content p {
+                max-width: 100%;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 20px;
+                background: white;
+                padding: 20px 0;
+                border-radius: 24px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .feature-grid {
+                flex-direction: column;
+                padding: 30px 24px;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .newsletter {
+                padding: 40px 24px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            .social-links a {
+                margin: 0 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">ELIXIR</a>
+            <button class="menu-toggle" id="mobileMenuBtn" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#collection">系列</a></li>
+                <li><a href="#story">品牌</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero 区 -->
+        <section id="home" class="hero container">
+            <div class="hero-content">
+                <div class="hero-badge">永恒优雅 · 2025 春季</div>
+                <h1>穿行于都市的<br>静谧诗篇</h1>
+                <p>极简线条，天然面料，演绎当代独立美学。ELIXIR 为您带来超越季节的经典设计。</p>
+                <div class="hero-buttons">
+                    <a href="#collection" class="btn btn-dark">探索系列 <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-outline">预约造型</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- 时尚感 placeholder 高清图 (unsplash 风格但使用可靠高质量图片源) -->
+                <img src="https://images.pexels.com/photos/8966263/pexels-photo-8966263.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" alt="时尚模特展示春季系列" loading="eager">
+            </div>
+        </section>
+
+        <!-- 精选系列 -->
+        <section id="collection" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>本季精选</h2>
+                    <p>探索融合艺术与工艺的摩登衣橱，每件单品都讲述着独特故事。</p>
+                </div>
+                <div class="product-grid">
+                    <!-- 产品 1 -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.pexels.com/photos/5854668/pexels-photo-5854668.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="极简羊毛大衣">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">雕塑感羊毛大衣</div>
+                            <div class="product-price">¥3,290</div>
+                        </div>
+                    </div>
+                    <!-- 产品 2 -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.pexels.com/photos/8765899/pexels-photo-8765899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="亚麻混纺衬衫">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">亚麻混纺解构衬衫</div>
+                            <div class="product-price">¥1,890</div>
+                        </div>
+                    </div>
+                    <!-- 产品 3 -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.pexels.com/photos/9338757/pexels-photo-9338757.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="锥形西裤">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">廓形锥形西裤</div>
+                            <div class="product-price">¥2,190</div>
+                        </div>
+                    </div>
+                    <!-- 产品 4 -->
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.pexels.com/photos/8816401/pexels-photo-8816401.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="真皮乐福鞋">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">手工皮革乐福鞋</div>
+                            <div class="product-price">¥2,490</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn btn-outline">浏览全部商品 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 品牌故事 + 特色区块 -->
+        <section id="story" class="section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-feather-alt"></i></div>
+                        <h4>匠心面料</h4>
+                        <p>精选意大利、日本高级天然纤维，每一寸都经过严格测试。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <h4>可持续时尚</h4>
+                        <p>循环设计理念，减少浪费，支持环保染色工艺。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h4>手工细节</h4>
+                        <p>由资深匠人监制，注重缝线与廓形的诗意平衡。</p>
+                    </div>
+                </div>
+                <div style="margin-top: 50px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; background: #fff; border-radius: 28px; padding: 20px 0;">
+                    <div style="flex:1.2; min-width: 240px;">
+                        <h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 20px;">静谧的力量<br>穿着即宣言</h3>
+                        <p style="color:#4a4a4a; margin-bottom: 20px;">ELIXIR 创立于上海，以建筑美学剪裁重塑日常着装。不追逐短暂潮流，只留存真正的风格。我们的每件作品，都旨在与身体产生共鸣。</p>
+                        <a href="#" class="btn btn-dark" style="background: #8b5e3c;">了解我们的故事</a>
+                    </div>
+                    <div style="flex:0.9; border-radius: 28px; overflow: hidden; max-height: 320px;">
+                        <img src="https://images.pexels.com/photos/7564487/pexels-photo-7564487.jpeg?auto=compress&cs=tinysrgb&w=600&h=450&fit=crop" style="width:100%; height:100%; object-fit:cover;" alt="品牌工坊">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 订阅区域 -->
+        <section class="container" style="margin-bottom: 40px;">
+            <div class="newsletter">
+                <h3>订阅灵感期刊</h3>
+                <p>获取最新系列发布、造型灵感以及独家邀请，订阅即享9折礼遇。</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="您的电子邮箱" id="subEmail">
+                    <button id="subscribeBtn">订阅 <i class="fas fa-paper-plane"></i></button>
+                </div>
+                <p style="font-size: 0.7rem; margin-top: 16px; opacity:0.6;">我们尊重隐私，邮件仅用于品牌资讯。</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚区域 & 联系 -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ELIXIR</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">门店查询</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">退换政策</a></li>
+                        <li><a href="#">尺码指南</a></li>
+                        <li><a href="#">订单追踪</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">Cookie 声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@elixir.com">hello@elixir.com</a></li>
+                        <li><i class="fas fa-phone-alt"></i> +86 (0)21 6483 2210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 上海市静安区富民路</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2025 ELIXIR. 保留所有权利。 设计 · 文化与匠心</div>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                    <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 简易JS：移动导航 + 订阅按钮演示反馈 -->
+    <script>
+        (function() {
+            // 移动端菜单切换
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navLinks.classList.toggle('active');
+                    // 改变图标
+                    const icon = mobileBtn.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // 关闭菜单（点击链接后自动关闭移动菜单）
+            const allLinks = document.querySelectorAll('.nav-links a');
+            allLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // 订阅按钮轻提示（模拟交互）
+            const subBtn = document.getElementById('subscribeBtn');
+            const emailInput = document.getElementById('subEmail');
+            if (subBtn) {
+                subBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    if (!email || !email.includes('@') || !email.includes('.')) {
+                        alert('✨ 请填写有效的邮箱地址，不错过每一期灵感～');
+                        emailInput.focus();
+                    } else {
+                        alert(`🎉 感谢订阅！优惠码已发送至 ${email} (示例) ，欢迎选购新系列。`);
+                        emailInput.value = '';
+                    }
+                });
+            }
+
+            // 平滑滚动: 确保内部锚点自然顺滑
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === "#" || targetId === "") return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // 更新url但不跳崩 (可选历史)
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
