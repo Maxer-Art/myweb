@@ -1,743 +1,437 @@
+html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ELIXIR | 现代时尚品牌</title>
-    <!-- 使用现代、干净的字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免费图标库) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>❤️ 表白心意 | 一份特别的礼物给你 ❤️</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none; /* 避免拖动图片/文字，不影响体验 */
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ff9a9e 0%, #fad0c4 50%, #fad0c4 100%);
+            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Poppins', 'Dancing Script', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+            cursor: pointer;
         }
 
-        /* 容器 */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* 导航栏 */
-        .navbar {
-            position: sticky;
+        /* 飘浮的心形背景动画 */
+        .floating-hearts {
+            position: fixed;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 18px 0;
-            transition: all 0.2s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1e1e2a, #2d2f3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #2c2c2e;
-            transition: color 0.2s;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: #8b5e3c;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 1.2rem;
-        }
-
-        .nav-icons a {
-            color: #2c2c2e;
-            font-size: 1.2rem;
-            transition: color 0.2s;
-        }
-
-        .nav-icons a:hover {
-            color: #8b5e3c;
-        }
-
-        /* 移动端菜单 */
-        .menu-toggle {
-            display: none;
-            font-size: 1.6rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #2c2c2e;
-        }
-
-        /* 按钮风格 */
-        .btn {
-            display: inline-block;
-            background-color: #1a1a1a;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.25s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #1a1a1a;
-            color: #1a1a1a;
-        }
-
-        .btn-outline:hover {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .btn-dark:hover {
-            background-color: #3a2c24;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        /* Hero 区 */
-        .hero {
-            padding: 80px 0 100px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-badge {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #8b5e3c;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            margin-bottom: 2rem;
-            max-width: 90%;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            flex: 1;
-            border-radius: 2rem;
-            overflow: hidden;
-            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.15);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.4s;
-        }
-
-        .hero-image:hover img {
-            transform: scale(1.02);
-        }
-
-        /* 精选系列 */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            color: #6b6b6b;
-            max-width: 580px;
-            margin: 0 auto;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .product-img {
-            background-color: #f4f4f4;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 4 / 5;
-            margin-bottom: 1rem;
-        }
-
-        .product-img img {
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 0 6px;
-        }
-
-        .product-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .product-price {
-            font-weight: 500;
-            color: #8b5e3c;
-        }
-
-        /* 特色区域 / 品牌故事 */
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            background: #faf8f6;
-            border-radius: 2rem;
-            padding: 50px 40px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .feature-icon {
-            font-size: 2.4rem;
-            color: #8b5e3c;
-            margin-bottom: 16px;
-        }
-
-        .feature-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-
-        .feature-item p {
-            color: #5a5a5a;
-        }
-
-        /* 电子邮件订阅 */
-        .newsletter {
-            background: #1e1e24;
-            color: white;
-            border-radius: 2rem;
-            padding: 60px 48px;
-            text-align: center;
-        }
-
-        .newsletter h3 {
+        .heart-bg {
+            position: absolute;
             font-size: 1.8rem;
-            margin-bottom: 12px;
+            opacity: 0.15;
+            animation: floatHeart 12s infinite ease-in-out;
+            user-select: none;
+            color: #ff3366;
         }
 
-        .newsletter p {
-            margin-bottom: 28px;
-            opacity: 0.8;
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.25;
+            }
+            80% {
+                opacity: 0.25;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(25deg);
+                opacity: 0;
+            }
         }
 
-        .newsletter-form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto;
+        /* 主卡片 */
+        .card {
+            position: relative;
+            z-index: 20;
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            border-radius: 55px 45px 65px 50px;
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: cardGlow 2s infinite alternate;
         }
 
-        .newsletter-form input {
-            flex: 2;
-            padding: 14px 20px;
-            border-radius: 60px;
-            border: none;
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
+        @keyframes cardGlow {
+            0% {
+                box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 215, 215, 0.6) inset;
+            }
+            100% {
+                box-shadow: 0 35px 55px rgba(231, 76, 110, 0.3), 0 0 0 3px rgba(255, 160, 180, 0.7) inset;
+            }
         }
 
-        .newsletter-form button {
-            background: #8b5e3c;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 60px;
-            font-weight: 600;
+        /* 顶部装饰 */
+        .love-header {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            padding: 2rem 1.5rem 1.8rem;
+            text-align: center;
             color: white;
-            cursor: pointer;
-            transition: background 0.2s;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
 
-        .newsletter-form button:hover {
-            background: #a4754e;
+        .love-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 3px 3px 0 #c0395b;
+            word-break: keep-all;
         }
 
-        /* 页脚 */
-        .footer {
-            background-color: #0f0f12;
-            color: #ccc;
-            padding: 60px 0 40px;
-            margin-top: 40px;
+        .love-header p {
+            font-size: 1rem;
+            margin-top: 8px;
+            opacity: 0.9;
+            font-style: italic;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            margin-bottom: 48px;
+        /* 内容区域 */
+        .content {
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
         }
 
-        .footer-col h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+        .message-box {
+            background: rgba(255, 248, 245, 0.8);
+            border-radius: 40px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #ffb7c5;
+            box-shadow: 0 8px 18px rgba(241, 147, 147, 0.2);
+            transition: all 0.2s;
         }
 
-        .footer-col ul {
-            list-style: none;
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 1.5;
+            font-weight: 500;
+            color: #5d2a3c;
+            font-family: 'Segoe UI', 'Quicksand', cursive;
         }
 
-        .footer-col li {
-            margin-bottom: 12px;
-        }
-
-        .footer-col a {
-            text-decoration: none;
-            color: #aaa;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover {
-            color: #d4a373;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 28px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-        }
-
-        .social-links a {
-            color: #ccc;
-            margin-left: 20px;
+        .signature {
+            text-align: right;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
             font-size: 1.2rem;
-            transition: color 0.2s;
+            color: #c44569;
+            font-weight: bold;
         }
 
-        .social-links a:hover {
-            color: #d4a373;
+        /* 动态按钮区域 */
+        .action-area {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn {
+            border: none;
+            background: #ffe6ed;
+            padding: 0.9rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-yes {
+            background: #ff6b81;
+            color: white;
+            border: 2px solid #fff0f3;
+            box-shadow: 0 8px 18px #ff4d6d70;
+        }
+
+        .btn-yes:hover {
+            background: #e84357;
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px #ff2e5b80;
+        }
+
+        .btn-no {
+            background: #f8d7da;
+            color: #a53146;
+            border: 1px solid #ffb3c1;
+            position: relative;
+            transition: 0.1s linear;
+        }
+
+        /* 结果弹层样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-card {
+            background: #fff5f7;
+            max-width: 420px;
+            width: 85%;
+            border-radius: 70px 40px 70px 40px;
+            text-align: center;
+            padding: 2rem 1.5rem 2rem;
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+            animation: bouncePop 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+            border: 1px solid #ffb7c2;
+        }
+
+        @keyframes bouncePop {
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            80% {
+                transform: scale(1.02);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-card h2 {
+            font-size: 2rem;
+            color: #c44569;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .modal-card p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #5e3a44;
+        }
+
+        .close-modal {
+            background: #ff7e9e;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            background: #e8435c;
+            transform: scale(0.96);
+        }
+
+        /* 彩蛋小爱心 */
+        .sparkle-heart {
+            position: fixed;
+            font-size: 1.6rem;
+            pointer-events: none;
+            z-index: 999;
+            animation: sparkleFly 1s ease-out forwards;
+        }
+
+        @keyframes sparkleFly {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
         }
 
         /* 响应式 */
-        @media (max-width: 900px) {
-            .container {
-                padding: 0 24px;
+        @media (max-width: 550px) {
+            .card {
+                margin: 1rem;
             }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0 60px;
+            .message-text {
+                font-size: 1rem;
             }
-            .hero-content p {
-                max-width: 100%;
+            .btn {
+                padding: 0.7rem 1.4rem;
+                font-size: 1rem;
             }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                margin-top: 20px;
-                background: white;
-                padding: 20px 0;
-                border-radius: 24px;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .feature-grid {
-                flex-direction: column;
-                padding: 30px 24px;
-            }
-            .section-header h2 {
+            .love-header h1 {
                 font-size: 1.8rem;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .newsletter {
-                padding: 40px 24px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-            .social-links a {
-                margin: 0 12px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">ELIXIR</a>
-            <button class="menu-toggle" id="mobileMenuBtn" aria-label="菜单">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#collection">系列</a></li>
-                <li><a href="#story">品牌</a></li>
-                <li><a href="#contact">联系</a></li>
-            </ul>
-            <div class="nav-icons">
-                <a href="#"><i class="far fa-user"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="card">
+    <div class="love-header">
+        <h1>✨ 致 我 的 星 星 ✨</h1>
+        <p>有些话，藏在心里很久了 ···</p>
+    </div>
+    <div class="content">
+        <div class="message-box">
+            <div class="message-text">
+                🌸 第一次遇见你，世界忽然有了颜色。<br>
+                你就像落入我宇宙的星光，让我每一个明天都充满期待。<br>
+                想和你一起看遍春夏秋冬，分享所有温柔与欢喜。<br>
+                💖 <strong>你，愿意和我在一起吗？</strong> 💖
+            </div>
+            <div class="signature">
+                —— 满眼都是你的某人
             </div>
         </div>
-    </nav>
-
-    <main>
-        <!-- Hero 区 -->
-        <section id="home" class="hero container">
-            <div class="hero-content">
-                <div class="hero-badge">永恒优雅 · 2025 春季</div>
-                <h1>穿行于都市的<br>静谧诗篇</h1>
-                <p>极简线条，天然面料，演绎当代独立美学。ELIXIR 为您带来超越季节的经典设计。</p>
-                <div class="hero-buttons">
-                    <a href="#collection" class="btn btn-dark">探索系列 <i class="fas fa-arrow-right"></i></a>
-                    <a href="#" class="btn btn-outline">预约造型</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <!-- 时尚感 placeholder 高清图 (unsplash 风格但使用可靠高质量图片源) -->
-                <img src="https://images.pexels.com/photos/8966263/pexels-photo-8966263.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop" alt="时尚模特展示春季系列" loading="eager">
-            </div>
-        </section>
-
-        <!-- 精选系列 -->
-        <section id="collection" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>本季精选</h2>
-                    <p>探索融合艺术与工艺的摩登衣橱，每件单品都讲述着独特故事。</p>
-                </div>
-                <div class="product-grid">
-                    <!-- 产品 1 -->
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.pexels.com/photos/5854668/pexels-photo-5854668.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="极简羊毛大衣">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">雕塑感羊毛大衣</div>
-                            <div class="product-price">¥3,290</div>
-                        </div>
-                    </div>
-                    <!-- 产品 2 -->
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.pexels.com/photos/8765899/pexels-photo-8765899.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="亚麻混纺衬衫">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">亚麻混纺解构衬衫</div>
-                            <div class="product-price">¥1,890</div>
-                        </div>
-                    </div>
-                    <!-- 产品 3 -->
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.pexels.com/photos/9338757/pexels-photo-9338757.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="锥形西裤">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">廓形锥形西裤</div>
-                            <div class="product-price">¥2,190</div>
-                        </div>
-                    </div>
-                    <!-- 产品 4 -->
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.pexels.com/photos/8816401/pexels-photo-8816401.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop" alt="真皮乐福鞋">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">手工皮革乐福鞋</div>
-                            <div class="product-price">¥2,490</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 50px;">
-                    <a href="#" class="btn btn-outline">浏览全部商品 <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 品牌故事 + 特色区块 -->
-        <section id="story" class="section">
-            <div class="container">
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-feather-alt"></i></div>
-                        <h4>匠心面料</h4>
-                        <p>精选意大利、日本高级天然纤维，每一寸都经过严格测试。</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                        <h4>可持续时尚</h4>
-                        <p>循环设计理念，减少浪费，支持环保染色工艺。</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
-                        <h4>手工细节</h4>
-                        <p>由资深匠人监制，注重缝线与廓形的诗意平衡。</p>
-                    </div>
-                </div>
-                <div style="margin-top: 50px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; background: #fff; border-radius: 28px; padding: 20px 0;">
-                    <div style="flex:1.2; min-width: 240px;">
-                        <h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 20px;">静谧的力量<br>穿着即宣言</h3>
-                        <p style="color:#4a4a4a; margin-bottom: 20px;">ELIXIR 创立于上海，以建筑美学剪裁重塑日常着装。不追逐短暂潮流，只留存真正的风格。我们的每件作品，都旨在与身体产生共鸣。</p>
-                        <a href="#" class="btn btn-dark" style="background: #8b5e3c;">了解我们的故事</a>
-                    </div>
-                    <div style="flex:0.9; border-radius: 28px; overflow: hidden; max-height: 320px;">
-                        <img src="https://images.pexels.com/photos/7564487/pexels-photo-7564487.jpeg?auto=compress&cs=tinysrgb&w=600&h=450&fit=crop" style="width:100%; height:100%; object-fit:cover;" alt="品牌工坊">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 订阅区域 -->
-        <section class="container" style="margin-bottom: 40px;">
-            <div class="newsletter">
-                <h3>订阅灵感期刊</h3>
-                <p>获取最新系列发布、造型灵感以及独家邀请，订阅即享9折礼遇。</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="您的电子邮箱" id="subEmail">
-                    <button id="subscribeBtn">订阅 <i class="fas fa-paper-plane"></i></button>
-                </div>
-                <p style="font-size: 0.7rem; margin-top: 16px; opacity:0.6;">我们尊重隐私，邮件仅用于品牌资讯。</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页脚区域 & 联系 -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>ELIXIR</h4>
-                    <ul>
-                        <li><a href="#">关于我们</a></li>
-                        <li><a href="#">门店查询</a></li>
-                        <li><a href="#">招贤纳士</a></li>
-                        <li><a href="#">新闻动态</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>客户服务</h4>
-                    <ul>
-                        <li><a href="#">帮助中心</a></li>
-                        <li><a href="#">退换政策</a></li>
-                        <li><a href="#">尺码指南</a></li>
-                        <li><a href="#">订单追踪</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>法律条款</h4>
-                    <ul>
-                        <li><a href="#">隐私政策</a></li>
-                        <li><a href="#">使用条款</a></li>
-                        <li><a href="#">Cookie 声明</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>联系方式</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@elixir.com">hello@elixir.com</a></li>
-                        <li><i class="fas fa-phone-alt"></i> +86 (0)21 6483 2210</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 上海市静安区富民路</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>© 2025 ELIXIR. 保留所有权利。 设计 · 文化与匠心</div>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
-                    <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+        <div class="action-area">
+            <button class="btn btn-yes" id="yesBtn">❤️ 我愿意 ❤️</button>
+            <button class="btn btn-no" id="noBtn">😢 再想想看</button>
         </div>
-    </footer>
+        <div style="font-size: 0.75rem; opacity: 0.6; margin-top: 6px;">点击爱心有惊喜哦~</div>
+    </div>
+</div>
 
-    <!-- 简易JS：移动导航 + 订阅按钮演示反馈 -->
-    <script>
-        (function() {
-            // 移动端菜单切换
-            const mobileBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            if (mobileBtn) {
-                mobileBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    navLinks.classList.toggle('active');
-                    // 改变图标
-                    const icon = mobileBtn.querySelector('i');
-                    if (navLinks.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
+<!-- 弹窗模态框 -->
+<div class="modal-overlay" id="responseModal">
+    <div class="modal-card">
+        <h2 id="modalTitle">❤️ 耶！❤️</h2>
+        <p id="modalMessage">我就知道你也喜欢我！从今以后，一起甜蜜暴击吧～</p>
+        <button class="close-modal" id="closeModalBtn">💘 紧紧抱住 💘</button>
+    </div>
+</div>
 
-            // 关闭菜单（点击链接后自动关闭移动菜单）
-            const allLinks = document.querySelectorAll('.nav-links a');
-            allLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        const icon = mobileBtn.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
+<script>
+    (function() {
+        // ---------- 动态生成背景漂浮爱心 ----------
+        const heartsContainer = document.getElementById('floatingHearts');
+        const heartSymbols = ['❤️', '💖', '💗', '💓', '💕', '💞', '🌸', '🌹', '✨'];
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            const randSymbol = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.innerHTML = randSymbol;
+            const size = Math.random() * 30 + 20; // 20px - 50px
+            heart.style.fontSize = size + 'px';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = Math.random() * 8 + 8 + 's'; // 8~16s
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.opacity = Math.random() * 0.25 + 0.1;
+            heartsContainer.appendChild(heart);
+
+            // 动画结束后移除元素，避免dom过多
+            heart.addEventListener('animationend', () => {
+                heart.remove();
             });
+        }
 
-            // 订阅按钮轻提示（模拟交互）
-            const subBtn = document.getElementById('subscribeBtn');
-            const emailInput = document.getElementById('subEmail');
-            if (subBtn) {
-                subBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const email = emailInput.value.trim();
-                    if (!email || !email.includes('@') || !email.includes('.')) {
-                        alert('✨ 请填写有效的邮箱地址，不错过每一期灵感～');
-                        emailInput.focus();
-                    } else {
-                        alert(`🎉 感谢订阅！优惠码已发送至 ${email} (示例) ，欢迎选购新系列。`);
-                        emailInput.value = '';
-                    }
-                });
+        // 生成30个背景爱心
+        for (let i = 0; i < 35; i++) {
+            setTimeout(() => createFloatingHeart(), i * 300);
+        }
+        // 定时持续补充背景爱心
+        setInterval(() => {
+            if (heartsContainer.children.length < 70) createFloatingHeart();
+        }, 3000);
+
+        // ---------- 按钮 + 炫酷特效 ----------
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const modal = document.getElementById('responseModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // 产生飘浮小爱心特效 (点击任何地方或按钮也可以触发)
+        function createSparkleHeart(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle-heart');
+            const heartIcons = ['❤️', '💖', '💗', '💘', '💝', '💟'];
+            sparkle.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            sparkle.style.left = (x - 12) + 'px';
+            sparkle.style.top = (y - 12) + 'px';
+            sparkle.style.position = 'fixed';
+            document.body.appendChild(sparkle);
+            setTimeout(() => {
+                if (sparkle && sparkle.remove) sparkle.remove();
+            }, 1000);
+        }
+
+        // 批量爱心雨特效 (响应表白成功)
+        function burstHearts(fromEvent = false, centerX = null, centerY = null) {
+            let baseX, baseY;
+            if (fromEvent && centerX && centerY) {
+                baseX = centerX;
+                baseY = centerY;
+            } else {
+                // 从屏幕中央爆发
+                baseX = window.innerWidth / 2;
+                baseY = window.innerHeight / 2;
             }
+            for (let i = 0; i < 38; i++) {
+                setTimeout(() => {
+                    const randX = baseX + (Math.random() - 0.5) * 180;
+                    const randY = baseY + (Math.random() - 0.5) * 150;
+                    const heartDiv = document.createElement('div');
+                    heartDiv.classList.add('sparkle-heart');
+                    heartDiv.innerHTML = ['❤️', '💖', '💗', '💓', '💘', '💕', '💞'][Math.floor(Math.random() * 7)];
+                    heartDiv.style.left = randX + 'px';
+                    heartDiv.style.top = randY + 'px';
+                    heartDiv.style.fontSize = (Math.random() * 20 + 18) + 'px';
+                    document.body.appendChild(heartDiv);
+                    setTimeout(() => heartDiv.remove(), 1200);
+                }, i * 35);
+            }
+        }
 
-            // 平滑滚动: 确保内部锚点自然顺滑
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === "#" || targetId === "") return;
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // 更新url但不跳崩 (可选历史)
-                        history.pushState(null, null, targetId);
-                    }
-                });
-            });
-        })();
-    </script>
-</body>
-</html>
+        // 显示弹窗且附带爱心特效
+        function showModal(isYes) {
+            if (isYes) {
+                modalTitle.innerHTML = '💌 答 应 你
