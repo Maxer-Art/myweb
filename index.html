@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>❤️ 一封给你的告白信 ❤️</title>
+    <title>❤️ 告白心意｜一份甜甜的礼物 ❤️</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none; /* 让点击体验更干净 */
         }
 
         body {
@@ -22,7 +21,6 @@
             padding: 1.5rem;
             position: relative;
             overflow-x: hidden;
-            cursor: pointer;
         }
 
         /* 浪漫漂浮背景 */
@@ -34,14 +32,13 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            overflow: hidden;
         }
 
         .heart-bg {
             position: absolute;
             font-size: 1.8rem;
             opacity: 0.2;
-            animation: floatHeart 14s infinite ease-in-out;
+            animation: floatHeart 12s infinite ease-in-out;
             color: #ff3366;
         }
 
@@ -68,21 +65,11 @@
             z-index: 20;
             max-width: 650px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(6px);
             border-radius: 60px 50px 70px 50px;
-            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            animation: gentleGlow 2.5s infinite alternate;
-        }
-
-        @keyframes gentleGlow {
-            0% {
-                box-shadow: 0 30px 45px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 215, 215, 0.7) inset;
-            }
-            100% {
-                box-shadow: 0 35px 55px rgba(231, 76, 110, 0.3), 0 0 0 3px rgba(255, 180, 200, 0.8) inset;
-            }
         }
 
         .love-header {
@@ -90,7 +77,7 @@
             padding: 2rem 1.5rem 1.8rem;
             text-align: center;
             color: white;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            border-radius: 60px 50px 0 0;
         }
 
         .love-header h1 {
@@ -117,7 +104,6 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
             border: 1px solid #ffb7c5;
-            box-shadow: 0 8px 18px rgba(241, 147, 147, 0.2);
         }
 
         .message-text {
@@ -155,16 +141,11 @@
             transition: all 0.2s ease;
             font-family: inherit;
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .btn-yes {
             background: #ff6b81;
             color: white;
-            border: none;
-            box-shadow: 0 8px 18px #ff4d6d70;
         }
 
         .btn-yes:hover {
@@ -176,12 +157,10 @@
             background: #ffe0e4;
             color: #ac3f58;
             border: 1px solid #ffb7c5;
-            position: relative;
         }
 
         .btn-no:hover {
             background: #ffd0d8;
-            transform: scale(0.98);
         }
 
         /* 弹窗 */
@@ -215,22 +194,7 @@
             text-align: center;
             padding: 2rem 1.5rem;
             box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
-            animation: bouncePop 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
             border: 1px solid #ffb7c2;
-        }
-
-        @keyframes bouncePop {
-            0% {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-            80% {
-                transform: scale(1.02);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
 
         .modal-card h2 {
@@ -262,7 +226,6 @@
             background: #e8435c;
         }
 
-        /* 飘浮小爱心动画 */
         .sparkle-heart {
             position: fixed;
             font-size: 1.6rem;
@@ -302,41 +265,43 @@
 
 <div class="card">
     <div class="love-header">
-        <h1>💌 给 最 特 别 的 你 💌</h1>
-        <p>✨ 遇见你，是我的幸运 ✨</p>
+        <h1>✨ 致 我 的 星 星 ✨</h1>
+        <p>有些话，藏在心里很久了~</p>
     </div>
     <div class="content">
         <div class="message-box">
             <div class="message-text">
-                🌹 你的出现，让我的世界万物晴朗。<br>
-                想和你一起分享所有的美好，也想在你难过时给你拥抱。<br>
-                我想成为你身边那个一直陪伴的人。<br>
-                💖 <strong>你愿意和我在一起吗？</strong> 💖
+                🌸 第一次遇见你，世界忽然有了颜色。<br>
+                你就像落入我宇宙的星光，让我每一个明天都充满期待。<br>
+                想和你一起看遍春夏秋冬，分享所有温柔与欢喜。<br>
+                💖 <strong>你，愿意和我在一起吗？</strong> 💖
             </div>
             <div class="signature">
                 —— 满眼都是你的某人
             </div>
         </div>
         <div class="action-area">
-            <button class="btn btn-yes" id="yesBtn">❤️ 我愿意 ❤️</button>
+            <button class="btn btn-yes" id="yesBtn">❤️ 我同意 ❤️</button>
             <button class="btn btn-no" id="noBtn">🌸 再想想看</button>
         </div>
-        <div style="font-size: 0.7rem; opacity: 0.6; margin-top: 8px;">✨ 轻轻点击，有心动彩蛋 ✨</div>
+        <div style="font-size: 0.7rem; opacity: 0.6; margin-top: 8px;">✨ 点击爱心有惊喜哦~ ✨</div>
     </div>
 </div>
 
-<!-- 弹窗结构 -->
 <div class="modal-overlay" id="responseModal">
     <div class="modal-card">
-        <h2 id="modalTitle">🎉 太棒啦！🎉</h2>
+        <h2 id="modalTitle">🎉 太好啦！🎉</h2>
         <p id="modalMessage">我就知道你也喜欢我！未来的每一天，一起甜甜蜜蜜吧～ 💑</p>
         <button class="close-modal" id="closeModalBtn">💕 紧紧抱住 💕</button>
     </div>
 </div>
 
 <script>
-    (function() {
-        // 1. 浪漫背景爱心持续生成
+    // 等待页面完全加载后再绑定事件，确保万无一失
+    window.addEventListener('DOMContentLoaded', function() {
+        console.log('页面已加载，开始绑定事件');
+
+        // 1. 背景爱心生成
         const heartsContainer = document.getElementById('floatingHearts');
         const heartIconsBg = ['❤️', '💖', '💗', '💓', '💕', '🌸', '🌹'];
 
@@ -350,20 +315,17 @@
             heart.style.animationDuration = Math.random() * 10 + 8 + 's';
             heart.style.animationDelay = Math.random() * 8 + 's';
             heartsContainer.appendChild(heart);
-            heart.addEventListener('animationend', () => heart.remove());
+            heart.addEventListener('animationend', function() { heart.remove(); });
         }
-        for (let i = 0; i < 30; i++) setTimeout(addBgHeart, i * 200);
-        setInterval(() => { if (heartsContainer.children.length < 60) addBgHeart(); }, 2800);
+        
+        for (let i = 0; i < 25; i++) {
+            setTimeout(addBgHeart, i * 200);
+        }
+        setInterval(function() { 
+            if (heartsContainer.children.length < 50) addBgHeart(); 
+        }, 3000);
 
-        // 2. 核心交互元素
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const modal = document.getElementById('responseModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalMessage = document.getElementById('modalMessage');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        // 3. 辅助特效函数: 产生小爱心雨
+        // 2. 爱心特效函数
         function createSparkleHeart(x, y) {
             const spark = document.createElement('div');
             spark.classList.add('sparkle-heart');
@@ -372,18 +334,14 @@
             spark.style.left = (x - 12) + 'px';
             spark.style.top = (y - 12) + 'px';
             document.body.appendChild(spark);
-            setTimeout(() => spark.remove(), 1000);
+            setTimeout(function() { if(spark && spark.remove) spark.remove(); }, 1000);
         }
 
-        function burstLove(fromCenter = true, customX = null, customY = null) {
-            let baseX = window.innerWidth / 2;
-            let baseY = window.innerHeight / 2;
-            if (!fromCenter && customX && customY) {
-                baseX = customX;
-                baseY = customY;
-            }
-            for (let i = 0; i < 40; i++) {
-                setTimeout(() => {
+        function burstLove() {
+            const baseX = window.innerWidth / 2;
+            const baseY = window.innerHeight / 2;
+            for (let i = 0; i < 45; i++) {
+                setTimeout(function() {
                     const offsetX = (Math.random() - 0.5) * 200;
                     const offsetY = (Math.random() - 0.5) * 150;
                     const heartDiv = document.createElement('div');
@@ -393,25 +351,31 @@
                     heartDiv.style.top = (baseY + offsetY) + 'px';
                     heartDiv.style.fontSize = (Math.random() * 20 + 18) + 'px';
                     document.body.appendChild(heartDiv);
-                    setTimeout(() => heartDiv.remove(), 1300);
+                    setTimeout(function() { if(heartDiv && heartDiv.remove) heartDiv.remove(); }, 1300);
                 }, i * 30);
             }
         }
+
+        // 3. 获取元素
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const modal = document.getElementById('responseModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModalBtn = document.getElementById('closeModalBtn');
 
         // 4. 弹窗控制
         function openModal(isPositive) {
             if (isPositive) {
                 modalTitle.innerHTML = '💖 我 们 在 一 起 吧 💖';
                 modalMessage.innerHTML = '你的心意我收到啦！从今往后，每一个朝暮都有我陪你，永远爱你哟 ❤️ 让我们开启甜蜜旅程！';
-                burstLove(true);
-                // 额外再来一波浪漫
-                setTimeout(() => burstLove(true), 400);
+                burstLove();
+                setTimeout(function() { burstLove(); }, 400);
             } else {
                 modalTitle.innerHTML = '🌸 等 你 的 那 一 天 🌸';
                 modalMessage.innerHTML = '没关系的，我愿意耐心等待。因为是你，所以值得。我会一直在这里，等你回过头看看我～ 🌹';
-                // 温柔落心雨
                 for (let i = 0; i < 20; i++) {
-                    setTimeout(() => {
+                    setTimeout(function() {
                         const fakeX = window.innerWidth / 2 + (Math.random() - 0.5) * 250;
                         const fakeY = window.innerHeight - 40;
                         createSparkleHeart(fakeX, fakeY);
@@ -425,83 +389,93 @@
             modal.classList.remove('active');
         }
 
-        // 5. 愿意按钮（完美互动）
-        yesBtn.addEventListener('click', (e) => {
-            const x = e.clientX || window.innerWidth / 2;
-            const y = e.clientY || window.innerHeight / 2;
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => createSparkleHeart(x + (Math.random() - 0.5) * 60, y + (Math.random() - 0.5) * 50), i * 25);
-            }
-            openModal(true);
-        });
+        // 5. ✅ 我同意按钮 - 确保点击有反应
+        if (yesBtn) {
+            yesBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('我同意按钮被点击了！');
+                const x = e.clientX || window.innerWidth / 2;
+                const y = e.clientY || window.innerHeight / 2;
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(function() {
+                        createSparkleHeart(x + (Math.random() - 0.5) * 60, y + (Math.random() - 0.5) * 50);
+                    }, i * 25);
+                }
+                openModal(true);
+            });
+        } else {
+            console.error('找不到yesBtn元素');
+        }
 
-        // 6. 再想想看 —— 完美修复，确保每一次点击都有温柔反馈且不卡死
+        // 6. 🌸 再想想看按钮 - 温柔回应，保证有反馈
         let missCount = 0;
         const noOriginalText = noBtn.innerHTML;
 
         function resetNoBtn() {
             noBtn.innerHTML = noOriginalText;
             noBtn.style.transform = 'translate(0, 0)';
-            noBtn.style.opacity = '1';
             noBtn.disabled = false;
         }
 
-        noBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            // 每次点击都会产生小爱心
-            const rect = noBtn.getBoundingClientRect();
-            const heartX = rect.left + rect.width / 2;
-            const heartY = rect.top + rect.height / 2;
-            for (let i = 0; i < 6; i++) {
-                setTimeout(() => createSparkleHeart(heartX + (Math.random() - 0.5) * 40, heartY + (Math.random() - 0.5) * 30), i * 30);
-            }
-
-            if (missCount < 4) {
-                // 前4次温柔地「躲一下」但绝不破坏点击注册，只是轻微移动+文字撒娇
-                const shiftX = (Math.random() - 0.5) * 25;
-                const shiftY = (Math.random() - 0.5) * 20 - 5;
-                noBtn.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
-                noBtn.style.transition = '0.1s linear';
-                setTimeout(() => {
-                    if (noBtn) noBtn.style.transform = 'translate(0px, 0px)';
-                }, 180);
-                // 更换可爱文字
-                const cuteTexts = ["🥺 再想想嘛", "💗 我真的超认真", "✨ 你看爱心都同意了", "🌹 给我个机会吧", "💕 点我愿意嘛"];
-                noBtn.innerHTML = cuteTexts[missCount % cuteTexts.length];
-                missCount++;
-                // 第4次之后恢复原本文字并且不再躲避，直接显示温柔弹窗
-                if (missCount === 4) {
-                    setTimeout(() => {
-                        if (noBtn) {
-                            noBtn.innerHTML = noOriginalText;
-                            noBtn.style.transform = 'translate(0,0)';
-                        }
-                    }, 500);
+        if (noBtn) {
+            noBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('再想想看按钮被点击了！missCount:', missCount);
+                
+                const rect = noBtn.getBoundingClientRect();
+                const heartX = rect.left + rect.width / 2;
+                const heartY = rect.top + rect.height / 2;
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(function() {
+                        createSparkleHeart(heartX + (Math.random() - 0.5) * 40, heartY + (Math.random() - 0.5) * 30);
+                    }, i * 30);
                 }
-            } else {
-                // 第五次开始直接打开等待弹窗，没有闪避，非常友善
-                openModal(false);
-                resetNoBtn();
-                missCount = 0; // 重置计数器
-            }
-        });
 
-        // 确保鼠标悬停时没有副作用，但为了体验，让按钮不抖动太过分
-        noBtn.addEventListener('mouseenter', () => {
-            if (missCount < 3) {
-                noBtn.style.transform = 'scale(0.97)';
-                setTimeout(() => { if (noBtn) noBtn.style.transform = ''; }, 150);
-            }
-        });
-        noBtn.addEventListener('mouseleave', () => {
-            noBtn.style.transform = '';
-        });
+                if (missCount < 3) {
+                    // 前3次轻微撒娇移动
+                    const shiftX = (Math.random() - 0.5) * 20;
+                    const shiftY = (Math.random() - 0.5) * 15;
+                    noBtn.style.transform = 'translate(' + shiftX + 'px, ' + shiftY + 'px)';
+                    noBtn.style.transition = '0.1s linear';
+                    setTimeout(function() {
+                        if (noBtn) noBtn.style.transform = 'translate(0px, 0px)';
+                    }, 180);
+                    
+                    const cuteTexts = ["🥺 再想想嘛", "💗 我真的超认真", "✨ 我超喜欢你", "🌹 给我个机会吧"];
+                    noBtn.innerHTML = cuteTexts[missCount % cuteTexts.length];
+                    missCount++;
+                    
+                    if (missCount === 3) {
+                        setTimeout(function() {
+                            if (noBtn) {
+                                noBtn.innerHTML = noOriginalText;
+                                noBtn.style.transform = 'translate(0,0)';
+                            }
+                        }, 500);
+                    }
+                } else {
+                    // 第4次及以后直接打开温柔弹窗
+                    openModal(false);
+                    resetNoBtn();
+                    missCount = 0;
+                }
+            });
+        } else {
+            console.error('找不到noBtn元素');
+        }
 
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        // 关闭弹窗
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+        if (modal) {
+            modal.addEventListener('click', function(e) { 
+                if (e.target === modal) closeModal(); 
+            });
+        }
 
-        // 7. 页面任意点击爱心飘落彩蛋
-        document.body.addEventListener('click', (e) => {
+        // 7. 页面任意点击小彩蛋
+        document.body.addEventListener('click', function(e) {
             if (e.target === yesBtn || e.target === noBtn || e.target.closest('.btn')) return;
             if (e.clientX && e.clientY) {
                 for (let i = 0; i < 2; i++) {
@@ -510,18 +484,19 @@
             }
         });
 
-        // 打开页面欢迎效果
-        setTimeout(() => {
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
+        // 初始欢迎爱心
+        setTimeout(function() {
+            for (let i = 0; i < 18; i++) {
+                setTimeout(function() {
                     const randX = Math.random() * window.innerWidth;
                     const randY = window.innerHeight * 0.2;
                     createSparkleHeart(randX, randY);
                 }, i * 80);
             }
         }, 300);
-        console.log("%c❤️ 表白网站已加载，愿你勇敢表白成功！❤️", "color: #ff4d6d; font-size: 16px");
-    })();
+        
+        console.log('✅ 所有事件绑定完成，按钮现在应该可以正常点击了！');
+    });
 </script>
 </body>
 </html>
